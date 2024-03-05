@@ -1,0 +1,49 @@
+.bh-header(data-uk-sticky='{top:-1}')
+    .bh-navbar
+        //a.bh-logo.uk-visible-large(href='frontpage.html')
+            .uk-navbar-brand
+                span.uk-text-primary Kir
+                | Pich
+        //a.bh-logo.uk-hidden-large(href='frontpage.html')
+            .uk-navbar-brand
+                span.uk-text-primary Kir
+                | Pich
+        // img use like thisr
+        //
+          <a class="bh-logo" href="frontpage.html">
+          <img class="uk-responsive-height" src="" width="" height="">
+          </a>
+        nav.uk-navbar.uk-text-center
+            .bh-navbar-nav-wrapper.uk-visible-large
+                ul.uk-navbar-nav
+                    li.uk-parent(data-uk='')
+                        a.uk-active(href='/index') Домой
+                    li.uk-parent(data-uk='')
+                        a.uk-active(href='/shop') В Магазин
+                    li.uk-parent(data-uk='')
+                        a.uk-active(href='/about') О Нас
+                    li.uk-parent(data-uk='')
+                        a.uk-active(href='/feedback') Отзывы
+                    li.uk-parent(data-uk='')
+                        a.uk-active(href='/contacts') Контакты
+            a.uk-navbar-toggle.uk-hidden-large(href='#offcanvas' data-uk-offcanvas='')
+        .bh-toolbar-left.uk-visible-large
+            a.bh-search-toggle(href='#' data-uk-toggle="{target:'.bh-search-bar', animation: 'uk-animation-slide-top'}")
+                i.uk-icon-search
+        .bh-toolbar-right
+            .uk-panel
+                ul.uk-subnav.uk-subnav-line
+                    li.uk-hidden-small
+                        span=currentUserName
+                    li.uk-hidden-small
+                        a(href='#login' data-uk-modal='')
+                            i.uk-icon-user
+                    if isLoggedIn
+                        li.uk-hidden-small
+                            form.uk-form(method="Post" action="/users/logout" id="LogOut")
+                                button(href='#logout')
+                                    i.uk-icon-power-off
+    .bh-search-bar.uk-hidden
+        form.uk-search(data-uk-search='')
+            input.uk-search-field(type='search' placeholder='Обыск...')
+        a.uk-close(href='#' data-uk-toggle="{target:'.bh-search-bar'}")

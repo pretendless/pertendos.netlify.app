@@ -1,0 +1,38 @@
+extends layout.pug
+
+block source
+	link(rel='stylesheet' href='css/about-contacts.css')
+
+block contents
+	main
+		.address
+			h1 Офис
+			p Наш офис находится по адресу Вяземский переулок 5-7.
+			p
+				b Метро
+				|  Петроградская / Чкаловская
+			.map
+				script(type='text/javascript' charset='utf-8' async='' src='https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A5ef4a350ebacdf7ccae15374e3b42f6865961ad21f33e710f051a61e60242de6&width=600&height=400&lang=ru_RU&scroll=true')
+		.phone
+			h1 Телефон
+			p
+				| Если вы захотите нам позвонить что бы задать вопросы, то вот наш телефон: +7(123)-123-4567
+		.feedback
+			form.contact-form(method='POST' enctype='multipart/form-data')
+				h1.title Оставьте заявку для обратного звонка
+				p.contact-form__description
+				.contact-form__input-wrapper
+					input.contact-form__input.contact-form__input_name(name='name' type='text' placeholder='Введите ваше имя')
+				.contact-form__input-wrapper
+					input.contact-form__input.contact-form__input_tel(name='tel' type='tel' placeholder='Введите ваш телефон')
+				button.contact-form__button(type='submit')  Запросить звонок
+		.address_form
+			form.contact-form(method='POST' enctype='multipart/form-data')
+				h1.title Оставьте заявку на доставку кирпичей
+				.contact-form__input-wrapper
+					input.contact-form__input.contact-form__input_name(name='name' type='text' placeholder='Введите ваше имя')
+				.contact-form__input-wrapper
+					input.contact-form__input.contact-form__input_tel(name='tel' type='tel' placeholder='Введите ваш телефон')
+				.contact-form__input-wrapper
+					input.contact-form__input.contact-form__input_tel(name='tel' type='text' placeholder='Введите ваш адрес')
+				button.contact-form__button(type='submit')  Запросить доставку

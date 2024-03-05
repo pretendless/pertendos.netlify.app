@@ -1,0 +1,252 @@
+<html>
+  <head>
+    <meta lang="ru"/>
+    <meta charset="UTF-8"/>
+    <meta name="keywords" content="Shop"/>
+    <meta name="description" content="Shop"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="icon" type="image/png" href="images/favicon.png"/>
+    <title>Кирпичный Флекс</title>
+    <link rel="stylesheet" href="../css/reset.css"/>
+    <link rel="stylesheet" href="../css/style.css"/>
+    <link id="theme-css" rel="stylesheet" href="../css/theme.css"/>
+    <link rel="stylesheet" href="../css/ie9.css"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link rel="stylesheet" href="css/feedback.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"/>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.socket.io/4.3.2/socket.io.min.js" integrity="sha384-KAZ4DtjNhLChOB/hxXuKqhMLYvx3b5MlT55xPEiNmREKRzeEm+RVPlTnAn0ajQNs" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="bh-header" data-uk-sticky="{top:-1}">
+      <div class="bh-navbar">
+        <!--a.bh-logo.uk-visible-large(href='frontpage.html')
+        .uk-navbar-brand
+            span.uk-text-primary Kir
+            | Pich
+        -->
+        <!--a.bh-logo.uk-hidden-large(href='frontpage.html')
+        .uk-navbar-brand
+            span.uk-text-primary Kir
+            | Pich
+        -->
+        <!-- img use like thisr-->
+        <!--
+        <a class="bh-logo" href="frontpage.html">
+        <img class="uk-responsive-height" src="" width="" height="">
+        </a>
+        -->
+        <nav class="uk-navbar uk-text-center">
+          <div class="bh-navbar-nav-wrapper uk-visible-large">
+            <ul class="uk-navbar-nav">
+              <li class="uk-parent" data-uk=""><a class="uk-active" href="/index">Домой</a></li>
+              <li class="uk-parent" data-uk=""><a class="uk-active" href="/shop">В Магазин</a></li>
+              <li class="uk-parent" data-uk=""><a class="uk-active" href="/about">О Нас</a></li>
+              <li class="uk-parent" data-uk=""><a class="uk-active" href="/feedback">Отзывы</a></li>
+              <li class="uk-parent" data-uk=""><a class="uk-active" href="/contacts">Контакты</a></li>
+            </ul>
+          </div><a class="uk-navbar-toggle uk-hidden-large" href="#offcanvas" data-uk-offcanvas=""></a>
+        </nav>
+        <div class="bh-toolbar-left uk-visible-large"><a class="bh-search-toggle" href="#" data-uk-toggle="{target:'.bh-search-bar', animation: 'uk-animation-slide-top'}"><i class="uk-icon-search"></i></a></div>
+        <div class="bh-toolbar-right">
+          <div class="uk-panel">
+            <ul class="uk-subnav uk-subnav-line">
+              <li class="uk-hidden-small"><span></span></li>
+              <li class="uk-hidden-small"><a href="#login" data-uk-modal=""><i class="uk-icon-user"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="bh-search-bar uk-hidden">
+        <form class="uk-search" data-uk-search="">
+          <input class="uk-search-field" type="search" placeholder="Обыск..."/>
+        </form><a class="uk-close" href="#" data-uk-toggle="{target:'.bh-search-bar'}"></a>
+      </div>
+    </div>
+    <section class="unborderedblock" id="mainimg">
+      <div class="mainimg"><img src="img/warehouse4.png" height="600px"/></div>
+    </section>
+    <section class="block" id="products">
+      <h3> Наши Продукты:</h3>
+      <div class="flex-container home"><img class="image" src="img/bronze.jpg" height="150px"/><img class="image" src="img/dalmatian.jpg" height="150px"/><img class="image" src="img/stained.jpg" height="150px"/></div>
+      <div class="flex-container outside"><img class="image" src="img/strong.jpg" height="150px"/><img class="image" src="img/for-children.jpg" height="150px"/><img class="image" src="img/de-luxe.jpg" height="150px"/></div>
+    </section>
+    <section class="block" id="reviews">
+        <div id="app" class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3 col-sm-12">
+                    <h1 class="text-center">{{ title }}</h1>
+                    <br>
+                    <div id="status"></div>
+                    <div id="chat">
+                        <input type="text" v-model="name" id="username" class="form-control" placeholder="Enter name...">
+                        <br>
+                        <div class="card">
+                            <div id="messages" class="card-block">
+                                <ul>
+                                    <li v-for="message of messages">{{ message.name }}: {{ message.text }}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <br>
+                        <textarea id="textarea" class="form-control" v-model="text" placeholder="Enter message..."></textarea>
+                        <br>
+                        <button id="send" class="btn" @click.prevent="sendMessage">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="block">
+      <h3> Наши Акции:</h3>
+      <p> Только сейчас у вас есть возможность купить 3 кирпича по цене 6! Быстрее!</p><img class="image" src="img/Akzia.png" height="150px"/>
+    </section>
+    <section class="block bpropositions">
+      <h3> Наши Лучшие Предложения:</h3>
+      <div class="uk-grid">
+        <div class="uk-width-small-1-2">
+          <div class="uk-panel">
+            <figure><img class="image" src="img/bronze.jpg" height="150px"/>
+              <p class="propositions">Бронза: 180 рублей/кирпич</p>
+            </figure>
+          </div>
+        </div>
+        <div class="uk-width-small-1-2">
+          <div class="uk-panel">
+            <figure><img class="image" src="img/dalmatian.jpg" height="150px"/>
+              <p class="propositions">Далматинец: 230 рублей/кирпич</p>
+            </figure>
+          </div>
+        </div>
+        <div class="uk-width-small-1-2">
+          <div class="uk-panel">
+            <figure><img class="image" src="img/stained.jpg" height="150px"/>
+              <p class="propositions">Пятнистый: 290 рублей/кирпич</p>
+            </figure>
+          </div>
+        </div>
+        <div class="uk-width-small-1-2">
+          <div class="uk-panel">
+            <figure><img class="image" src="img/strong.jpg" height="150px"/>
+              <p class="propositions">Мощный: 390 рублей/кирпич</p>
+            </figure>
+          </div>
+        </div>
+        <div class="uk-width-small-1-2">
+          <div class="uk-panel">
+            <figure><img class="image" src="img/for-children.jpg" height="150px"/>
+              <p class="propositions">Для детей: 500 рублей/кирпич</p>
+            </figure>
+          </div>
+        </div>
+        <div class="uk-width-small-1-2">
+          <div class="uk-panel">
+            <figure><img class="image" src="img/de-luxe.jpg" height="150px"/>
+              <p class="propositions">Де-Люкс: 1000 рублей/кирпич</p>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="bh-footer uk-text-center-small">
+      <div class="uk-container uk-container-center uk-position-relative"><a href="index"><img class="uk-margin-right" src="images/logo.png" alt="Footer Logo" width="15" height="15" data-demo-style=""/></a><span class="uk-hidden-small">Copyright © 2022<a href="http://www.vk.com/negativestore" target="_blank">Mikhniuk Roman, Zlobinets Nikita.</a>. Kirpichniy Flex<i class="uk-icon-heart uk-text-primary uk-margin-small-left"></i></span>
+        <p></p>load time<span id="time">?</span>ms(client)<span></span>ms(server)<a class="bh-topscroller" data-uk-smooth-scroll="" href="#"><i class="uk-icon-angle-up"></i></a>
+      </div>
+    </footer>
+    <div class="uk-offcanvas" id="offcanvas">
+      <div class="uk-offcanvas-bar">
+        <form class="uk-search">
+          <input class="uk-search-field" type="search" placeholder="Search..."/>
+        </form>
+        <ul class="uk-nav uk-nav-offcanvas">
+          <li class="uk-parent"><a href="/index">Домой</a></li>
+          <li class="uk-parent"><a href="/shop">В Магазин</a></li>
+          <li class="uk-parent"><a href="/about">О Нас</a></li>
+          <li class="uk-parent"><a href="/feedback">Отзывы</a></li>
+          <li class="uk-parent"><a href="/contacts">Контакты</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="uk-modal" id="login">
+      <div class="uk-modal-dialog"><a class="uk-modal-close uk-close"></a>
+        <ul class="uk-tab uk-tab-grid" data-uk-tab="{connect:'#login-tab'}">
+          <li class="uk-width-small-1-2 uk-active"><a href="#">Вход</a></li>
+          <li class="uk-width-small-1-2"><a href="#">Регистрация</a></li>
+        </ul>
+        <ul class="uk-switcher uk-margin" id="login-tab">
+          <li class="uk-active">
+            <form class="uk-form" method="Post" action="/users/signin" id="Login">
+              <div class="uk-grid" data-uk-margin="{cls:'uk-margin-top'}">
+                <div class="uk-width-1-1 uk-text-center">
+                  <h3>Я уже участник</h3>
+                  <p>Сколько домов по всему миру построили кирпичи?<br/> Ну вообще наверное много довольно-таки, что заставляет подумать...</p>
+                </div>
+                <div class="uk-width-1-1">
+                  <input class="uk-form-large uk-width-1-1" type="text" placeholder="Email" name="email" form="Login"/>
+                </div>
+                <div class="uk-width-1-1">
+                  <input class="uk-form-large uk-width-1-1" type="text" placeholder="Пароль" name="password" form="Login"/>
+                </div>
+                <div class="uk-width-1-1 uk-text-center">
+                  <label>
+                    <input type="checkbox"/> Запомнить меня
+                  </label><a class="uk-margin-left" href="#">Просрал пароль?</a>
+                </div>
+                <div class="uk-width-1-1 uk-text-center">
+                  <button class="uk-button uk-text-center">Войти</button>
+                </div>
+              </div>
+            </form>
+          </li>
+          <li>
+            <form class="uk-form" method="Post" action="/users/signup" id="Register">
+              <div class="uk-grid" data-uk-margin="{cls:'uk-margin-top'}">
+                <div class="uk-width-1-1 uk-text-center">
+                  <h3>Я здесь новичек</h3>
+                  <p>Сколько домов по всему миру построили кирпичи?<br/> Ну вообще наверное много довольно-таки, что заставляет подумать...</p>
+                </div>
+                <div class="uk-width-1-1">
+                  <input class="uk-form-large uk-width-1-1" type="text" form="Register" name="email" placeholder="Email"/>
+                </div>
+                <div class="uk-width-1-1">
+                  <input class="uk-form-large uk-width-1-1" type="text" form="Register" name="username" placeholder="UserName"/>
+                </div>
+                <div class="uk-width-1-1">
+                  <input class="uk-form-large uk-width-1-1" type="text" form="Register" name="firstName" placeholder="Имя"/>
+                </div>
+                <div class="uk-width-1-1">
+                  <input class="uk-form-large uk-width-1-1" type="text" form="Register" name="lastName" placeholder="Фамилия"/>
+                </div>
+                <div class="uk-width-1-1">
+                  <input class="uk-form-large uk-width-1-1" type="text" form="Register" name="password" placeholder="Пароль"/>
+                </div>
+                <div class="uk-width-1-1 uk-text-center">
+                  <button class="uk-button uk-text-center">Регистрация</button>
+                </div>
+              </div>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script src="feedback.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script src="../js/jquery-3.5.1.js"></script>
+    <script src="../js/imageopener.js"></script>
+    <script src="../js/popup.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../assets/jquery.js"></script>
+    <script src="../assets/jquery.velocity.min.js"></script>
+    <script src="../assets/uikit/js/uikit.js"></script>
+    <script src="../assets/holder.js"></script>
+    <script src="../assets/countUp.js"></script>
+    <script src="../assets/uikit/js/components/accordion.min.js"></script>
+    <script src="../assets/uikit/js/components/grid.min.js"></script>
+    <script src="../assets/uikit/js/components/lightbox.min.js"></script>
+    <script src="../assets/uikit/js/components/search.min.js"></script>
+    <script src="../assets/uikit/js/components/slideshow.min.js"></script>
+    <script src="../assets/uikit/js/components/slideshow-fx.min.js"></script>
+    <script src="../assets/uikit/js/components/sticky.min.js"></script>
+    <script src="../assets/uikit/js/components/slider.min.js"></script>
+  </body>
+</html>

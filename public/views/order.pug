@@ -1,0 +1,141 @@
+extends layout.pug
+
+
+block contents
+    .bh-position-title
+        .uk-container.uk-container-center
+            .uk-panel
+                h1 Оформление Заказа
+    .bh-position.bh-position-default
+        - var actionSTR = '/order?products=' + id;
+        form.uk-container.uk-container-center(id="Order" method="POST", action=actionSTR)
+            ul.uk-breadcrumb
+                li
+                    a(href='/index') Домой
+                li
+                    a(href='/shop') Магазин
+                li.uk-active
+                    span Заказ
+            article.uk-article
+                .uk-grid(data-uk-grid-margin='')
+                    if !isLoggedIn
+                        .uk-width-1-1
+                            .uk-alert.uk-margin-bottom-remove
+                                i.uk-icon-info-circle.uk-margin-right
+                                | Постоянный Клиент?
+                                br.uk-visible-small
+                                a(href='#' data-uk-toggle="{target:'#checkout-login', animation: 'uk-animation-fade'}") Нажмите Сюда Чтобы Войти
+                            #checkout-login.uk-panel.uk-panel-box.uk-hidden.uk-margin-top
+                                p
+                                    | Когда-нибудь кирпичи будут в космосе
+                                form.uk-form
+                                    .uk-grid(data-uk-margin='')
+                                        .uk-width-medium-1-2
+                                            label.uk-form-label(for='form-checkout-name') Имя Пользователя
+                                            input#form-checkout-name.uk-form-large.uk-width-1-1(type='text' placeholder='Введите имя пользователя...')
+                                        .uk-width-medium-1-2
+                                            label.uk-form-label(for='form-checkout-password') Пароль
+                                            input#form-checkout-password.uk-form-large.uk-width-1-1(type='text' placeholder='******')
+                                        .uk-width-1-1.uk-margin-top
+                                            button.uk-button Войти
+                                            label.uk-margin-left
+                                                input(type='checkbox')
+                                                |  Запомнить меня
+                                            a.uk-margin-left(href='#') Просрал пароль?
+                    .uk-width-1-1
+                        h2.bh-headline-bottom-border
+                            span Адрес Доставки
+                        form.uk-form.uk-form
+                            .uk-grid(data-uk-margin="{cls:'uk-margin-small-top'}")
+                                .uk-width-1-1
+                                    label.uk-form-label(for='orderCountry') Страна
+                                    select#orderCountry.uk-form-large.uk-width-1-1(form="Order" name='orderCountry')
+                                        option Россия (RUS)
+                                        option Hochlandia (US)
+                                        option Румыния (ROM)
+                                        option Демократическая Республика Конго (KDR)
+                                .uk-width-1-2
+                                    label.uk-form-label(for='customerFirstName') Имя
+                                    input#customerFirstName.uk-form-large.uk-width-1-1(type='text' name='customerFirstName' form="Order")
+                                .uk-width-1-2
+                                    label.uk-form-label(for='customerLastName') Фамилия
+                                    input#customerSecondName.uk-form-large.uk-width-1-1(type='text' name='customerLastName' form="Order")
+                                .uk-width-1-1
+                                    label.uk-form-label(for='orderAddress') Адрес
+                                    input#orderAddress.uk-form-large.uk-width-1-1(type='text' name='orderAddress' form="Order")
+                                .uk-width-1-2
+                                    label.uk-form-label(for='orderCity') Город
+                                    input#orderCity.uk-form-large.uk-width-1-1(type='text' name='orderCity' form="Order")
+                                .uk-width-1-2
+                                    label.uk-form-label(for='orderZipCode') Почтовый Индекс
+                                    input#orderZipCode.uk-form-large.uk-width-1-1(type='text' name='orderZipCode' form="Order")
+                .uk-grid.uk-margin-large-top(data-uk-grid-margin='')
+                    .uk-width-1-1
+                        h2.bh-headline-bottom-border
+                            span Ваш Заказ
+                        .uk-overflow-container
+                            table.uk-table.uk-table-middle.uk-text-nowrap
+                                thead
+                                    tr
+                                        th Продукт
+                                        th Описание
+                                        th.uk-text-center Количество
+                                        th.uk-text-center В Итоге
+                                tbody
+                                    tr
+                                        - var imgSTR ="images/small_kirpich"+id+".png";
+                                        - var prodHrfSTR ="/product/"+id;
+                                        td
+                                            a(href=prodHrfSTR)
+                                                img(src=imgSTR width='100' height='75' alt='Product Image')
+                                        td
+                                            a.bh-text-uppercase.uk-link-reset(href=prodHrfSTR) #{name}
+                                            br
+                                            span.uk-text-muted.uk-text-small No. #{id}
+                                        td.uk-text-center
+                                            form.uk-form(for='productsQuantity' id='Order')
+                                                input.uk-form-width-mini(type='number' placeholder='1' form="Order" name='productsQuantity')
+                                        td.uk-text-center #{price}р
+                            .uk-grid
+                                .uk-width-medium-1-2.uk-push-1-2
+                                    .uk-panel.uk-panel-box
+                                        span.uk-float-left Итого
+                                        -var finalValue = Number(price);
+                                        span.uk-float-right #{finalValue} 
+                                        br
+                                        span.uk-float-left Доставка
+                                        span.uk-float-right 5р
+                                        br
+                                        hr
+                                        span.uk-float-left Итоговая Цена
+                                        span.uk-float-right #{finalValue}
+                .uk-grid.uk-margin-large-top
+                    .uk-width-1-1
+                        h2.bh-headline-bottom-border
+                            span Выберете способ оплаты
+                        .uk-panel
+                            label
+                                input.uk-margin-right(type='radio' name='orderPayment' form="Order")
+                                |  Прямой банковский перевод
+                            br
+                            p
+                                | Не надо, не стоит того
+                        hr
+                        .uk-panel
+                            label
+                                input.uk-margin-right(type='radio' name='orderPayment' form="Order")
+                                |  Оплата Чеком
+                            br
+                            p
+                                | Каким еще чеком ты че, ты бы еще пакетом расплатился
+                        hr
+                        .uk-panel
+                            label
+                                input.uk-margin-right(type='radio' name='orderPayment' form="Order")
+                                |  Наличными Курьеру
+                            br
+                            p
+                                | Найс
+                .uk-grid
+                    .uk-width-1-1
+                        button.uk-button.uk-button-primary(type="submit" form="Order") Оставить Заказ

@@ -1,0 +1,191 @@
+extends layout.pug
+
+block contents
+    .bh-position.bh-position-padding-remove(data-uk-slideshow="{animation: 'fade', duration: 700}")
+      ul.uk-slideshow.uk-slideshow-fullscreen.bh-slideshow.uk-overlay-active
+        li
+          img(src='images/kirpich_dump_7.jpg' width='1200' height='660' alt='Slideshow Image' data-demo-style='')
+          .uk-overlay-panel.uk-flex.uk-flex-center.uk-flex-middle.uk-text-center
+            div
+              p.bh-teaser-subtitle-primary.uk-text-contrast.bh-text-uppercase.uk-animation-slide-top.bh-animation-delay-300 Лето 2015
+              h1.bh-teaser-headline.uk-text-contrast.uk-margin-remove.uk-animation-fade.bh-animation-delay-200 Новая Collection
+              p.bh-teaser-subtitle-secondary.uk-text-contrast.bh-text-uppercase.uk-visible-large.uk-animation-slide-bottom.bh-animation-delay-300 Проверьте новую collection
+              p.uk-margin-bottom-remove
+                a.uk-button.uk-button-large.bh-button-secondary.bh-button-secondary-contrast.uk-animation-fade.bh-animation-delay-500(href='/shop') А, Дайте-ка войти в Магазин
+          a.uk-slidenav.uk-slidenav-previous.uk-hidden-small(data-uk-slideshow-item='previous' href='#')
+            .bh-slideshow-preview
+              img.bh-slideshow-preview-image(src='images/kirpich_dump_5_small.jpg' width='120' height='120')
+              h4.uk-text-muted.uk-margin-top-remove.uk-margin-small-bottom.uk-visible-large Здоровенная Весна Распродажа
+              p.uk-margin-remove.uk-visible-large Возьмите шанс получить лучшие deals
+          a.uk-slidenav.uk-slidenav-next.uk-hidden-small(data-uk-slideshow-item='next' href='#')
+            .bh-slideshow-preview
+              img.bh-slideshow-preview-image(src='images/kirpich_dump_6.jpg' width='120' height='120')
+              h4.uk-text-muted.uk-margin-top-remove.uk-margin-small-bottom.uk-visible-large Зимняя Collection
+              p.uk-margin-remove.uk-visible-large Найдите себе что-нибудь на зиму
+        li
+          img(src='images/kirpich_dump_6.jpg' width='1200' height='660' alt='Slideshow Image' data-demo-style='')
+          .uk-overlay-panel.uk-flex.uk-flex-center.uk-flex-middle.uk-text-center
+            div
+              p.bh-teaser-subtitle-primary.uk-text-contrast.bh-text-uppercase.uk-animation-slide-top.bh-animation-delay-300 Зима 2006
+              h1.bh-teaser-headline.uk-text-contrast.uk-margin-remove.uk-animation-fade.bh-animation-delay-200 Зима Collection
+              p.bh-teaser-subtitle-secondary.uk-text-contrast.bh-text-uppercase.uk-visible-large.uk-animation-slide-bottom.bh-animation-delay-300 Найдите себе что-нибудь на зиму
+              p
+                a.uk-button.uk-button-large.bh-button-secondary.bh-button-secondary-contrast.uk-animation-fade.bh-animation-delay-500(href='/shop') А, Дайте-ка войти в Магазин
+          a.uk-slidenav.uk-slidenav-previous.uk-hidden-small(data-uk-slideshow-item='previous' href='#')
+            .bh-slideshow-preview
+              img.bh-slideshow-preview-image(src='images/kirpich_dump_2.jpg' width='120' height='120' data-demo-style='')
+              h4.uk-text-muted.uk-margin-top-remove.uk-margin-small-bottom Лето Collection
+              p.uk-margin-remove Проверьте новую collection
+          a.uk-slidenav.uk-slidenav-next.uk-hidden-small(data-uk-slideshow-item='next' href='#')
+            .bh-slideshow-preview
+              img.bh-slideshow-preview-image(src='images/kirpich_dump_5_small.jpg' width='120' height='120' data-demo-style='')
+              h4.uk-text-muted.uk-margin-top-remove.uk-margin-small-bottom.uk-visible-large Здоровенная Весна Распродажа
+              p.uk-margin-remove.uk-visible-large Возьмите шанс получить лучшие deals
+        li
+          img(src='images/kirpich_dump_5.jpg' width='1200' height='660' alt='Slideshow Image' data-demo-style='')
+          .uk-overlay-panel.uk-flex.uk-flex-center.uk-flex-middle.uk-text-center
+            div
+              p.bh-teaser-subtitle-primary.uk-text-contrast.bh-text-uppercase.uk-animation-slide-top.bh-animation-delay-300 Весна 2022
+              h1.bh-teaser-headline.uk-text-contrast.uk-margin-remove.uk-animation-fade.bh-animation-delay-200 Здоровенная Весна Распродажа
+              p.bh-teaser-subtitle-secondary.uk-text-contrast.bh-text-uppercase.uk-visible-large.uk-animation-slide-bottom.bh-animation-delay-300 Возьмите шанс получить лучшие deals
+              p
+                a.uk-button.uk-button-large.bh-button-secondary.bh-button-secondary-contrast.uk-animation-fade.bh-animation-delay-500(href='/shop') А, Дайте-ка войти в Магазин
+          a.uk-slidenav.uk-slidenav-previous.uk-hidden-small(data-uk-slideshow-item='previous' href='#')
+            .bh-slideshow-preview
+              img.bh-slideshow-preview-image(src='images/kirpich_dump_6.jpg' width='120' height='120')
+              h4.uk-text-muted.uk-margin-top-remove.uk-margin-small-bottom Зима Collection
+              p.uk-margin-remove Найдите себе что-нибудь на зиму
+          a.uk-slidenav.uk-slidenav-next.uk-hidden-small(data-uk-slideshow-item='next' href='#')
+            .bh-slideshow-preview
+              img.bh-slideshow-preview-image(src='images/kirpich_dump_2.jpg' width='120' height='120' data-demo-style='')
+              h4.uk-text-muted.uk-margin-top-remove.uk-margin-small-bottom Лето Collection
+              p.uk-margin-remove Проверьте новую collection
+    .bh-position.bh-position-primary
+      .uk-container.uk-container-center
+        .uk-grid(data-uk-grid-margin='')
+          .uk-width-small-1-2.uk-width-medium-1-3
+            .uk-panel
+              .uk-grid
+                .uk-width-1-6
+                  i.uk-icon-plane.uk-icon-medium
+                .uk-width-5-6
+                  h5.uk-display-inline-block.uk-margin-bottom-remove.uk-margin-small-right Бесплатная Доставка
+                  br.uk-hidden-large
+                  | При заказе от 100000 рублей
+          .uk-width-small-1-2.uk-width-medium-1-3
+            .uk-panel
+              .uk-grid
+                .uk-width-1-6
+                  i.uk-icon-globe.uk-icon-medium
+                .uk-width-5-6
+                  h5.uk-display-inline-block.uk-margin-bottom-remove.uk-margin-small-right Доставка Повсюду
+                  br.uk-hidden-large
+                  | 2 района Петербурга
+          .uk-width-small-1-2.uk-width-medium-1-3
+            .uk-panel
+              .uk-grid
+                .uk-width-1-6
+                  i.uk-icon-history.uk-icon-medium
+                .uk-width-5-6
+                  h5.uk-display-inline-block.uk-margin-bottom-remove.uk-margin-small-right Гарантия
+                  br.uk-hidden-large
+                  | 4 дня
+    .bh-position.bh-position-default
+      .uk-panel.uk-text-center
+        form.uk-form
+          | Sign up for the style newsletter
+          br.uk-visible-small
+          input.uk-form-large.uk-margin-small-left.uk-margin-small-right.bh-margin-top-only-small(type='text' placeholder='Enter your email...')
+          br.uk-visible-small
+          a.uk-button.uk-margin-right-small.bh-margin-top-only-small(href='/shop') Women
+          a.uk-button.bh-margin-top-only-small(href='/shop') Men
+    .bh-position.bh-position-default
+      .uk-container.uk-container-center
+        .uk-grid(data-uk-grid-margin='')
+          .uk-width-large-1-3
+            .uk-panel.uk-panel-box
+              h1
+                span.uk-text-primary Kirpichniy
+                | Flex
+              p За всю историю человека не было более лучшего друга чем его кирпич...
+              .uk-grid(data-uk-margin="{cls:'uk-margin-top'}")
+                .uk-width-2-10
+                  i.uk-icon-map-marker
+                .uk-width-8-10
+                  | Новоизмайловский проспект, 16 к3
+                  br
+                  |                                 0182 Санкт-Петербург
+                .uk-width-2-10
+                  i.uk-icon-phone
+                .uk-width-8-10
+                  | +7 (928) 631 85 25
+                .uk-width-2-10
+                  i.uk-icon-envelope-o
+                .uk-width-8-10
+                  a(href='mailto:pret3ndless@gmail.com') pret3ndless@gmail.com
+          .uk-width-large-2-3
+            .uk-grid(data-uk-grid-match='')
+              .uk-width-small-1-2.uk-width-medium-1-3
+                .uk-panel.uk-panel-space.uk-text-center-small
+                  p.bh-text-uppercase Shopping guide
+                  ul.uk-list
+                    li
+                      a(href='#') FAQ's
+                    li
+                      a(href='#') Payment
+                    li
+                      a(href='#') Shipping
+                    li
+                      a(href='/product/create') А Почему бы не Создать Кирпич, А
+              .uk-width-small-1-2.uk-width-medium-1-3
+                .uk-panel.uk-panel-space.uk-text-center-small
+                  p.bh-text-uppercase Company
+                  ul.uk-list.uk-panel-space
+                    li
+                      a(href='#') About Us
+                    li
+                      a(href='#') Store Locator
+                    li
+                      a(href='#') Work with Us
+                    li
+                      a(href='#') Franchise
+              .uk-width-small-1-2.uk-width-medium-1-3
+                .uk-panel.uk-panel-space.uk-text-center-small
+                  p.bh-text-uppercase Help
+                  ul.uk-list
+                    li
+                      a(href='#') Fashion Finder
+                    li
+                      a(href='#') Track Order
+              .uk-width-small-1-2.uk-width-medium-1-3
+                .uk-panel.uk-panel-space.uk-text-center-small
+                  p.bh-text-uppercase General
+                  ul.uk-list.uk-panel-space
+                    li
+                      a(href='#') Terms & Conditions
+                    li
+                      a(href='#') Privacy & Cookies
+                    li
+                      a(href='#') Store directory
+              .uk-width-small-1-2.uk-width-medium-1-3
+                .uk-panel.uk-panel-space.uk-text-center-small
+                  p.bh-text-uppercase Follow Us
+                  ul.uk-list
+                    li(data-uk-margin='')
+                      a.uk-icon-button.uk-icon-twitter(href='#')
+                      a.uk-icon-button.uk-icon-facebook(href='#')
+                      a.uk-icon-button.uk-icon-google-plus(href='#')
+              .uk-width-small-1-2.uk-width-medium-1-3
+                .uk-panel.uk-panel-space.uk-text-center-small
+                  p.bh-text-uppercase Payment
+                  ul.uk-list.uk-margin-remove
+                    li
+                      a(href='#')
+                        i.uk-icon-cc-mastercard.uk-text-large
+                      a(href='#')
+                        i.uk-icon-cc-visa.uk-text-large
+                      a(href='#')
+                        i.uk-icon-cc-amex.uk-text-large
+                      a(href='#')
+                        i.uk-icon-cc-paypal.uk-text-large
+    

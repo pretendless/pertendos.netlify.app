@@ -1,0 +1,77 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator dtoshki {
+  provider = "prisma-generator-nestjs-dto"
+  output   = "../../src/dto"
+}
+
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+//Here is a declaration of user Table and it properties
+//configurations.
+model User {
+  id        String  @id
+  username  String  @unique
+  password  String
+  firstName String?
+  lastName  String?
+  role      Role    @default(CLIENT)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  email  String? @unique
+  orders Order[]
+  @@map("user")
+}
+
+enum Role {
+  CLIENT
+  ADMIN
+  ROOT
+}
+
+model Order {
+  id                Int       @id @default(autoincrement())
+  customer          User?     @relation(fields: [customerId], references: [id])
+  customerId        String?
+  customerFirstName String?
+  customerLastName  String?
+  productId         String?
+  products          Product[]
+  productsPrice     String?
+  productsQuantity  String?
+  orderCountry      String?
+  orderCity         String?
+  orderAddress      String?
+  orderZipCode      String?
+  orderPayment      String?
+  orderEmail        String?
+  createdAt         DateTime? @default(now())
+  orderStatus       String?
+}
+
+model Product {
+  id          Int     @id @default(autoincrement())
+  name        String?
+  price       Int?
+  description String?
+  imageId     Int?
+  image       Image?  @relation(fields: [imageId], references: [id])
+  orderId     Int?
+  order       Order?  @relation(fields: [orderId], references: [id])
+}
+
+model Image {
+  id      Int       @id @default(autoincrement())
+  Product Product[]
+}

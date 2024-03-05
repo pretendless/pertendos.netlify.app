@@ -1,0 +1,127 @@
+/* ================================== MAIN ==================================== */
+
+.mainimg {
+    text-align: center;
+    height: 60%;
+}
+
+.flex-container img {
+    height: 240px;
+    border-radius: 10px;
+    opacity: 0.90; 
+}
+
+.block img {
+    height: 240px;
+    border-radius: 10px;
+    opacity: 0.90; 
+}
+
+.unborderedblock {
+    position: relative;
+    text-align: center;
+}
+
+.flex-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-container .home{
+  align-items: flex-end;
+}
+
+.flex-container .outside{
+  align-items: flex-start;
+}
+
+
+.reviews dt {
+    font-size: 15px;
+    margin: 2px 30px;
+    font-weight: bold;
+    text-align: start;
+}
+
+.reviews dd {
+    font-size: 15px;
+    text-align: start;
+    margin: 2px 40px;
+}
+
+.propositions {
+    text-align: start;
+    color: maroon;
+    font-size: 20px;
+}
+
+.block {
+    position: relative;
+    text-align: center;
+    padding: 10px 20px 20px;
+    margin: 10px 15%;
+    border-radius: 2px;
+    background-color: #f9f7ff;
+    background-position: center;
+    border: 0.2em solid #000000;
+}
+
+/* ================================== POPUP ===================================== */
+.divPop
+{
+    text-align: center;
+    font-size: large;
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    background-color: rgb(158, 124, 14);
+    z-index: 9999;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.btn {
+    text-align: end;
+}
+
+.popup {
+	position: fixed;
+	height:100%;
+	width:100%;
+	top:0;
+	left:0;
+	display:none;
+	text-align:center;
+}
+
+
+.popup_bg {
+	background:rgba(0,0,0,0.4);
+	position: fixed;;
+	z-index:1;
+	height:100%;
+	width:100%;
+}
+
+.popup_img {
+	position: relative;
+	margin:0 auto;
+	z-index:2;
+	max-height:94%;
+    max-width:94%;
+    min-height: 50%;
+	margin:1% 0 0 0;
+}
+
+
+/* ================================== Socket.io ===================================== */
+#messages {
+    height:300px;
+    overflow-y: scroll;
+}
+
+#app {
+    margin-top: 2rem;
+}

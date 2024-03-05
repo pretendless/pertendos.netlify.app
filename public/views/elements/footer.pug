@@ -1,0 +1,84 @@
+footer.bh-footer.uk-text-center-small
+  .uk-container.uk-container-center.uk-position-relative
+    a(href='index')
+      img.uk-margin-right(src='images/logo.png' alt='Footer Logo' width='15' height='15' data-demo-style='')
+    span.uk-hidden-small
+      | Copyright © 2022
+      a(href='http://www.vk.com/negativestore' target='_blank') Mikhniuk Roman, Zlobinets Nikita.
+      | . Kirpichniy Flex
+      i.uk-icon-heart.uk-text-primary.uk-margin-small-left
+    p
+    |load time
+    span#time ?
+    | ms(client)
+    span=duration
+    | ms(server)
+    a.bh-topscroller(data-uk-smooth-scroll='' href='#')
+      i.uk-icon-angle-up
+#offcanvas.uk-offcanvas
+  .uk-offcanvas-bar
+    form.uk-search
+      input.uk-search-field(type='search' placeholder='Search...')
+    ul.uk-nav.uk-nav-offcanvas
+      li.uk-parent
+        a(href='/index') Домой
+      li.uk-parent
+        a(href='/shop') В Магазин
+      li.uk-parent
+        a(href='/about') О Нас
+      li.uk-parent
+        a(href='/feedback') Отзывы
+      li.uk-parent
+        a(href='/contacts') Контакты
+
+if !isLoggedIn
+  #login.uk-modal
+    .uk-modal-dialog
+      a.uk-modal-close.uk-close
+      ul.uk-tab.uk-tab-grid(data-uk-tab="{connect:'#login-tab'}")
+        li.uk-width-small-1-2.uk-active
+          a(href='#') Вход
+        li.uk-width-small-1-2
+          a(href='#') Регистрация
+      ul#login-tab.uk-switcher.uk-margin
+        li.uk-active
+          form.uk-form(method="Post" action="/users/signin" id="Login")
+            .uk-grid(data-uk-margin="{cls:'uk-margin-top'}")
+              .uk-width-1-1.uk-text-center
+                h3 Я уже участник
+                p
+                  | Сколько домов по всему миру построили кирпичи?
+                  br
+                  |  Ну вообще наверное много довольно-таки, что заставляет подумать...
+              .uk-width-1-1
+                input.uk-form-large.uk-width-1-1(type='text' placeholder='Email' name='email' form="Login")
+              .uk-width-1-1
+                input.uk-form-large.uk-width-1-1(type='text' placeholder='Пароль' name='password' form="Login")
+              .uk-width-1-1.uk-text-center
+                label
+                  input(type='checkbox')
+                  |  Запомнить меня
+                a.uk-margin-left(href='#') Просрал пароль?
+              .uk-width-1-1.uk-text-center
+                button.uk-button.uk-text-center Войти
+        li
+          form.uk-form(method="Post" action="/users/signup" id="Register")
+            .uk-grid(data-uk-margin="{cls:'uk-margin-top'}")
+              .uk-width-1-1.uk-text-center
+                h3 Я здесь новичек
+                p
+                  | Сколько домов по всему миру построили кирпичи?
+                  br
+                  |  Ну вообще наверное много довольно-таки, что заставляет подумать...
+              .uk-width-1-1
+                input.uk-form-large.uk-width-1-1(type='text' form='Register' name='email' placeholder='Email')
+              .uk-width-1-1
+                input.uk-form-large.uk-width-1-1(type='text' form='Register' name='username' placeholder='UserName')
+              .uk-width-1-1
+                input.uk-form-large.uk-width-1-1(type='text' form='Register' name='firstName' placeholder='Имя')
+              .uk-width-1-1
+                input.uk-form-large.uk-width-1-1(type='text' form='Register' name='lastName' placeholder='Фамилия')
+              .uk-width-1-1
+                input.uk-form-large.uk-width-1-1(type='text' form='Register' name='password' placeholder='Пароль')
+              .uk-width-1-1.uk-text-center
+                button.uk-button.uk-text-center Регистрация

@@ -1,0 +1,36 @@
+extends layout.pug
+
+
+block contents
+    .bh-position-title
+        .uk-container.uk-container-center
+            .uk-panel
+                h1 Рождение Кирпича
+    .bh-position.bh-position-default
+        form.uk-container.uk-container-center(id="products-create" method="POST", action='/product/create')
+            ul.uk-breadcrumb
+                li
+                    a(href='/index') Домой
+                li
+                    a(href='/shop') Магазин
+                li.uk-active
+                    span Сотворение Кирпича
+            article.uk-article
+                .uk-grid(data-uk-grid-margin='')
+                    .uk-width-1-1
+                        h2.bh-headline-bottom-border
+                            span Данные Кирпича
+                        form.uk-form.uk-form
+                            .uk-grid(data-uk-margin="{cls:'uk-margin-small-top'}")
+                                .uk-width-1-2
+                                    label.uk-form-label(for='name') Имя
+                                    input#customerFirstName.uk-form-large.uk-width-1-1(type='text' name='name' form="products-create")
+                                .uk-width-1-2
+                                    label.uk-form-label(for='price') Цена
+                                    input#orderAddress.uk-form-large.uk-width-1-1(type='number' name='price' form="products-create")
+                                .uk-width-1-1
+                                    label.uk-form-label(for='description') Описание
+                                    input#orderCity.uk-form-large.uk-width-1-1(type='text' name='description' form="products-create")
+                .uk-grid
+                    .uk-width-1-1
+                        button.uk-button.uk-button-primary(type="submit" form="products-create") Оставить Кирпич

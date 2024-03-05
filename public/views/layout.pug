@@ -1,0 +1,16 @@
+html
+    head
+        include ./elements/head.pug
+
+        include ./elements/sharedstyles.pug
+
+        block source
+    body
+        include ./elements/header.pug
+
+        block contents
+
+        include ./elements/footer.pug
+
+        include ./elements/sharedscript.pug
+

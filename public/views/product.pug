@@ -1,0 +1,228 @@
+extends layout.pug
+
+block contents
+    .bh-position-title
+        .uk-container.uk-container-center
+            .uk-panel
+                h1 #{name}
+
+    .bh-position.bh-position-default
+        - var big_imageSTR = '../images/big_kirpich' + id + '.png'; 
+        - var small_imageSTR = '../images/small_kirpich' + id + '.png';
+        - var orderProdHREF = '/order?products=' + id;
+        .uk-container.uk-container-center
+            .uk-grid(data-uk-grid-margin='')
+                .uk-width-1-1
+                    ul.uk-breadcrumb
+                        li
+                            a(href='/index') Домой
+                        li
+                            a(href='/shop') Магазин
+                        li.uk-active
+                            span #{name}
+                    article.uk-article
+                        .uk-grid(data-uk-grid-margin='')
+                            .uk-width-medium-1-2
+                                div(data-uk-slideshow="{animation: 'scroll', duration: 700}")
+                                    .uk-grid.uk-grid-small(data-uk-grid-margin='')
+                                        .uk-width-1-1
+                                            .uk-slidenav-position
+                                                ul.uk-slideshow
+                                                    li
+                                                        figure.uk-overlay.uk-overlay-hover
+                                                            img.uk-overlay-spin(src=big_imageSTR width='720' height='540' alt='Product Image')
+                                                            figcaption.uk-overlay-panel.uk-overlay-icon.uk-overlay-background.uk-overlay-fade
+                                                            a.uk-position-cover(href=big_imageSTR data-uk-lightbox="{group:'single_product'}")
+                                                    li
+                                                        figure.uk-overlay.uk-overlay-hover
+                                                            img.uk-overlay-spin(src=big_imageSTR width='720' height='540' alt='Product Image')
+                                                            figcaption.uk-overlay-panel.uk-overlay-icon.uk-overlay-background.uk-overlay-fade
+                                                            a.uk-position-cover(href=big_imageSTR data-uk-lightbox="{group:'single_product'}")
+                                                    li
+                                                        figure.uk-overlay.uk-overlay-hover
+                                                            img.uk-overlay-spin(src=big_imageSTR width='720' height='540' alt='Product Image')
+                                                            figcaption.uk-overlay-panel.uk-overlay-icon.uk-overlay-background.uk-overlay-fade
+                                                            a.uk-position-cover(href=big_imageSTR data-uk-lightbox="{group:'single_product'}")
+                                                a.uk-slidenav.uk-slidenav-previous(data-uk-slideshow-item='previous' href='#')
+                                                a.uk-slidenav.uk-slidenav-next(data-uk-slideshow-item='next' href='#')
+                                        .uk-width-1-3
+                                            figure.uk-overlay.uk-overlay-hover
+                                                img.uk-overlay-spin(src=big_imageSTR width='720' height='540' alt='Product Image')
+                                                figcaption.uk-overlay-panel.uk-overlay-icon.uk-overlay-background.uk-overlay-fade
+                                                a.uk-position-cover(href='#' data-uk-slideshow-item='0')
+                                        .uk-width-1-3
+                                            figure.uk-overlay.uk-overlay-hover
+                                                img.uk-overlay-spin(src=big_imageSTR width='720' height='540' alt='Product Image')
+                                                figcaption.uk-overlay-panel.uk-overlay-icon.uk-overlay-background.uk-overlay-fade
+                                                a.uk-position-cover(href='#' data-uk-slideshow-item='1')
+                                        .uk-width-1-3
+                                            figure.uk-overlay.uk-overlay-hover
+                                                img.uk-overlay-spin(src=big_imageSTR width='720' height='540' alt='Product Image')
+                                                figcaption.uk-overlay-panel.uk-overlay-icon.uk-overlay-background.uk-overlay-fade
+                                                a.uk-position-cover(href='#' data-uk-slideshow-item='2')
+                            .uk-width-medium-1-2
+                                p.uk-text-muted.uk-h3
+                                    del 26000р
+                                    ins #{price}
+                                div
+                                    i.uk-icon-star.uk-text-primary
+                                    i.uk-icon-star.uk-text-primary
+                                    i.uk-icon-star.uk-text-primary
+                                    i.uk-icon-star.uk-text-primary
+                                    i.uk-icon-star
+                                    a.uk-margin-small-left(href='#shop-single-details' data-uk-smooth-scroll='{offset: 90}') 3 Обзора
+                                hr
+                                p
+                                    | Если купить много кирпичей, то получится недвижимость...
+                                p
+                                    | Категория:
+                                    a(href='/shop') Рыжий,
+                                    a(href='/shop') Рыжий,
+                                    a(href='/shop') Конопатый
+                                    br
+                                    |  Тэги:
+                                    a(href='/shop') Прибил,
+                                    a(href='/shop') Дедушку,
+                                    a(href='/shop') Лопатой
+                                hr
+                                p
+                                    a(href='#')
+                                        i.uk-icon-envelope-o
+                                    a.uk-margin-left(href='#')
+                                        i.uk-icon-facebook
+                                    a.uk-margin-left(href='#')
+                                        i.uk-icon-twitter
+                                    a.uk-margin-left(href='#')
+                                        i.uk-icon-google-plus
+                                p
+                                hr
+                                form.uk-form.uk-grid
+                                    .uk-width-1-1(data-uk-margin='')
+                                        button.uk-button.uk-button-large -
+                                        input.uk-form-large.uk-form-width-mini(type='number' placeholder='1')
+                                        button.uk-button.uk-button-large +
+                                        .uk-button-group
+                                            a.uk-button.uk-button-primary.uk-button-large(href=orderProdHREF) Оформить Заказ
+                                            button.uk-button.uk-button-primary.uk-button-large
+                                                i.uk-icon-star
+                .uk-width-1-1
+                    ul.uk-tab.uk-tab-grid(data-uk-tab="{connect:'#shop-single-details'}")
+                        li.uk-width-1-2.uk-active
+                            a(href='#') Описание
+                        li.uk-width-1-2
+                            a(href='#') Обзоры (3)
+                    ul#shop-single-details.uk-switcher.uk-margin
+                        li
+                            h3.uk-margin-top #{name}
+                            ul
+                                li #{description}
+                                li Может ли кирпич летать
+                                li Может ли кирпич летать
+                                li Может ли кирпич летать
+                                li Может ли кирпич летать
+                                li Может ли кирпич летать
+                            p
+                                | Наверное
+                        li
+                            .uk-grid(data-uk-grid-margin='')
+                                .uk-width-1-1
+                                    ul.uk-comment-list.uk-margin-top
+                                        li
+                                            article.uk-comment
+                                                header.uk-comment-header
+                                                    img.uk-comment-avatar(src=small_imageSTR width='50' height='50' alt='User Image')
+                                                    h4.uk-comment-title Крутой Городской
+                                                    .uk-comment-meta
+                                                        | 1 day ago
+                                                        span
+                                                            i.uk-icon-star.uk-text-primary
+                                                            i.uk-icon-star.uk-text-primary
+                                                            i.uk-icon-star.uk-text-primary
+                                                            i.uk-icon-star.uk-text-primary
+                                                            i.uk-icon-star
+                                                .uk-comment-body
+                                                    p
+                                                        | Может ли кирпич летать
+                                        li
+                                            article.uk-comment
+                                                header.uk-comment-header
+                                                    img.uk-comment-avatar(src=small_imageSTR width='50' height='50' alt='User Image')
+                                                    h4.uk-comment-title Natalia Stone
+                                                    .uk-comment-meta
+                                                        | 1 day ago
+                                                        span
+                                                            i.uk-icon-star.uk-text-primary
+                                                            i.uk-icon-star.uk-text-primary
+                                                            i.uk-icon-star.uk-text-primary
+                                                            i.uk-icon-star
+                                                            i.uk-icon-star
+                                                .uk-comment-body
+                                                    p
+                                                        | Может ли кирпич летать
+                                        li
+                                            article.uk-comment
+                                                header.uk-comment-header
+                                                    img.uk-comment-avatar(src=small_imageSTR width='50' height='50' alt='User Image')
+                                                    h4.uk-comment-title John Parker
+                                                    .uk-comment-meta
+                                                        | 1 day ago
+                                                        span
+                                                            i.uk-icon-star.uk-text-primary
+                                                            i.uk-icon-star.uk-text-primary
+                                                            i.uk-icon-star.uk-text-primary
+                                                            i.uk-icon-star.uk-text-primary
+                                                            i.uk-icon-star.uk-text-primary
+                                                .uk-comment-body
+                                                    p
+                                                        | Может ли кирпич летать
+                                .uk-width-1-1
+                                    h3 Напишите обзор
+                                    form.uk-form.uk-form-stacked
+                                        .uk-grid(data-uk-margin="{cls:'uk-margin-top'}")
+                                            .uk-width-medium-1-2
+                                                label.uk-form-label(for='form-singleproduct-name') Имя
+                                                input#form-singleproduct-name.uk-width-1-1.uk-form-large(type='text' placeholder='Введите как вас зовут...')
+                                            .uk-width-medium-1-2
+                                                label.uk-form-label(for='form-singleproduct-mail') E-Mail
+                                                input#form-singleproduct-mail.uk-width-1-1.uk-form-large(type='text' placeholder='Ваш Email...')
+                                            .uk-width-1-1
+                                                label.uk-form-label(for='form-singleproduct-review') Обзор
+                                                textarea#form-singleproduct-review.uk-width-1-1.uk-form-large(rows='6' placeholder='Ваш обзор...')
+                                            .uk-width-1-1.uk-clearfix
+                                                .uk-float-left
+                                                    | Оцени кирпич:
+                                                    i.uk-icon-star.uk-text-primary
+                                                    i.uk-icon-star.uk-text-primary
+                                                    i.uk-icon-star.uk-text-primary
+                                                    i.uk-icon-star
+                                                    i.uk-icon-star
+                                                button.uk-button.bh-button.uk-float-right Отправить
+                .uk-width-1-1
+                    .uk-panel.uk-panel-header
+                        .uk-panel-title Похожие кирпичи
+                        .uk-slidenav-position(data-uk-slider='')
+                            .uk-slider-container
+                                ul.uk-slider.uk-grid.uk-grid-width-small-1-2.uk-grid-width-medium-1-3
+                                    li
+                                        .uk-panel
+                                            .uk-panel-badge.uk-badge Out of stock
+                                            .uk-panel-badge.uk-badge.uk-badge-danger Sale
+                                            figure.uk-overlay.uk-overlay-hover.bh-overlay-image
+                                                img(src='../images/small_kirpich2.png' width='720' height='540' alt='Product Image')
+                                                img.bh-overlay-image-hover(src='../images/small_kirpich2.png' width='720' height='540' alt='Product Image Overlay')
+                                                figcaption.uk-overlay-panel.uk-overlay-bottom.uk-overlay-slide-bottom.bh-padding-remove
+                                                    div
+                                                        .uk-button-group.uk-width-1-1
+                                                            a.uk-button.uk-button-large.uk-width-8-10(href='/order?products=2') Оформить Заказ
+                                                            a.uk-button.uk-button-large.uk-width-2-10(href='#')
+                                                                i.uk-icon-star
+                                                a.uk-position-cover(href='/product/2')
+                                            .uk-float-left.uk-margin-top
+                                                h3.uk-margin-small-bottom.uk-link-reset
+                                                    a(href='#') Кирпич "Сторож"
+                                                p.uk-margin-remove
+                                                    a(href='/shop') Сторожевой,
+                                                    a(href='/shop') Сильный
+                                            span.uk-float-right.uk-margin-top.uk-text-large 21000р
+                            a.bh-slider-prev(href='#' data-uk-slider-item='предыдущий')
+                            a.bh-slider-next(href='#' data-uk-slider-item='следующий')
